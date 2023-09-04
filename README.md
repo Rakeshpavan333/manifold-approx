@@ -44,18 +44,18 @@ This project has dependencies on the following third-party libraries:
 
 To install dependencies, open your terminal and run:
 
-\```bash
+```bash
 sudo apt-get update
 sudo apt-get install libopencv-dev libeigen3-dev libboost-all-dev
-\```
+```
 
 ### macOS
 
 To install dependencies via Homebrew:
 
-\```bash
+```bash
 brew install opencv eigen boost
-\```
+```
 
 ### Windows
 
@@ -67,29 +67,29 @@ To build the project, follow these steps:
 
 1. Clone the repository:
 
-\```bash
+```bash
 git clone https://github.com/Rakeshpavan333/manifold-approx.git
-\```
+```
 
 2. Navigate into the project's directory:
 
-\```bash
+```bash
 cd manifold-approx
-\```
+```
 
 3. Create a `build` directory and navigate into it:
 
-\```bash
+```bash
 mkdir build
 cd build
-\```
+```
 
 4. Run CMake and build:
 
-\```bash
+```bash
 cmake ..
 make
-\```
+```
 
 
 ## Documentation
