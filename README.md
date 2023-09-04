@@ -1,4 +1,4 @@
-# Efficient algorithms and data-structure for smooth manifolds 
+# Efficient algorithm and data-structure for smooth manifolds 
 
 ## Overview
 
