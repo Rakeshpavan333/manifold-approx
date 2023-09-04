@@ -2,7 +2,7 @@
 
 ## Overview
 
-Efficiently store and perform algebraic computations on smooth manifolds - like computing Lie derivatives, estimating brackets, finding isomorphisms, and other closely related utilities. 
+Efficiently store, manipulate, and perform algebraic computations on smooth manifolds - like computing Lie derivatives, estimating brackets, finding isomorphisms, and other closely related utilities. 
 
 ## Table of Contents
 
