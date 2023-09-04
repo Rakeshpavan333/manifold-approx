@@ -5,7 +5,7 @@
 
 ## Overview
 
-The goal of this project is to provide a robust, efficient, and multi-threaded C++ algorithm for storing, manipulating, and analyzing a large volume dataset. The library is particularly designed for algebraic computations that are crucial in identifying geometric structures and smooth manifolds in the data. The library offers features like computing Lie derivatives, estimating brackets, finding isomorphisms, and other manifold-related utilities.
+The goal of this project is to provide a robust, efficient, and multi-threaded C++ algorithm for storing, manipulating, and analyzing a large volume dataset. The library is particularly designed for algebraic computations that are crucial in identifying geometric structures and smooth manifolds in the data. It provides features like computing Lie derivatives, estimating brackets, finding isomorphisms, and other manifold-related utilities.
 
 ## Table of Contents
 
