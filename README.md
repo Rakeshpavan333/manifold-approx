@@ -2,7 +2,7 @@
 
 ## Overview
 
-Efficiently store, manipulate, and perform algebraic computations on smooth manifolds - like computing Lie derivatives, estimating brackets, finding isomorphisms, and other closely related utilities. 
+Efficiently store and manipulate large volumetric datasets. Perform algebraic computations to identify geometric structures and smooth manifolds - like computing Lie derivatives, estimating brackets, finding isomorphisms, and other closely related utilities. 
 
 ## Table of Contents
 
