@@ -1,7 +1,12 @@
+/* Ignore this version */ 
+
 #include "utilities.hpp"
 #include <cmath>  // for std::atan2 and CV_PI
 #include <algorithm>  // for std::min and std::max
 
+#define DUP_IMPL 0 
+
+#if DUP_IMPL
 cv::Scalar ColorFromJet(float metric) {
     int idx = static_cast<int>(metric * 255.0f);
     idx = std::min(255, std::max(0, idx));
@@ -60,3 +65,4 @@ void visualizeVectors(cv::Mat& img, const cv::Mat& data, const std::vector<std::
         }
     }
 }
+#endif
