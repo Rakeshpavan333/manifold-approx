@@ -1,9 +1,14 @@
-/* A graph-based data structure to efficiently store and handle algebraic computations on manifolds - like computing Lie brackets,
+/* 
+A graph-based data structure to efficiently store and handle algebraic computations on manifolds - like computing Lie brackets,
     finding isomorphisms, and other functionalities. 
+
+Version 0.6 (verify) 
 */ 
 
 #ifndef DATASTRUCT_HPP
 #define DATASTRUCT_HPP
+
+#include "utilities.hpp" 
 
 #include <Eigen/Dense>
 #include <Eigen/Core>
@@ -12,11 +17,17 @@
 #include <map>
 #include <opencv2/opencv.hpp>
 
-// Type Aliases
+// Type Aliases and Templates
 using Mnode = Eigen::Vector3i;  // Voxel in the original volume
 using Lnode = Eigen::Vector3i;  // Voxel in the transformed coordinate space
 using Liso = Eigen::Vector3f;   // Intermediate results
 using PField = Eigen::Matrix3f; // Storing Lie Algebra 
+
+using Tensor3D = std::vector<Eigen::MatrixXi>;
+using Tensor3Df = std::vector<Eigen::MatrixXf>;
+using Tensor3Dd = std::vector<Eigen::MatrixXd>;
+
+using Vector3D = std::vector<std::vector<std::vector<bool>>>; // Remember: Change to numeric in vfinal 
 
 class DataStruct {
 public:
