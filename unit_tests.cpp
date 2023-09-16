@@ -21,6 +21,12 @@ bool test_check1_campfire() {
     po::notify(vm);
 
     displayConfig(config, vm);
+
+    if (vm.count("pathName") == 0) {
+        std::cerr << "ERROR: Please provide `pathName`. Edit the `CampfireDebugConfig.ini` file.\n";
+        return false;
+    }
+    
     DataStruct manifold(campfireFolder);
     
     return manifold.getStatus();
