@@ -4,7 +4,7 @@ Version 0.6 (verify)
 */ 
 
 #include "DataStruct.hpp"
-#include "localApprox.cpp" 
+#include "localApprox.hpp" 
 #include "testHarmonicLaplace.cpp" 
 
 #define ENABLE_DUPLICATE_DS 0
