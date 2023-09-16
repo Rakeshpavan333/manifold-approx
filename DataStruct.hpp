@@ -37,7 +37,7 @@ public:
     DataStruct(const std::string& pathName, const Eigen::Vector3i& dim, const Eigen::Vector3i& regionSz);
 
     // Public Member Functions
-    void getStatus(); 
+    bool getStatus(); 
 
     void logDebugInfo();
     void saveState();
