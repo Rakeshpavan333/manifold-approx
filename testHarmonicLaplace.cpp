@@ -399,3 +399,66 @@ private:
 	std::vector<cv::Mat> eigenfields;
 	int H, W;
 };
+
+
+int main()
+{
+    po::options_description config("Configuration");
+    config.add_options()
+        ("imagePath", po::value<std::string>()->default_value("/unit_tests/img0.png"), "Image location")
+        ("display.original", po::value<bool>()->default_value(true), "Display image")
+        ("preprocess.shrink", po::value<bool>()->default_value(false), "Resize (Shrink) image")
+        ("preprocess.shrink.X", po::value<float>()->default_value(1), "Resize (Shrink) factor")
+        ("preprocess.shrink.type", po::value<std::string>()->default_value("linear"), "Shrink interpolation")
+        ("harmonic.numEigen", po::value<int>()->default_value(5), "Number of eigenvalues required")
+        ("harmonic.Arnoldi", po::value<int>()->default_value(50), "Number of Arnoldi vectors (ncv)")
+        ("harmonic.maxIter", po::value<int>()->default_value(1000), "Number of max iterations")
+        ("harmonic.eps", po::value<double>()->default_value(1e-2), "Error tolerance, for convergence")
+        ("harmonic.isLargest", po::value<bool>()->default_value(true), "Set True if you want largest eig")
+        ("applyBlur", po::value<bool>()->default_value(false), "Set True if you want to apply median blur")
+    	("enhanceContrast", po::value<bool>()->default_value(false), "Flag to determine if contrast should be enhanced")
+    	("contrast_clipLimit", po::value<double>()->default_value(4.0), "Set contrast limit for adaptive histogram equalization")
+    	("contrast_size", po::value<int>()->default_value(8), "Set size of grid for histogram equalization")
+    	("dirK", po::value<int>()->default_value(21), "Number of directions (K)");
+
+    po::variables_map vm;
+    std::ifstream config_file("../HarmonicsConfig.ini", std::ifstream::in);
+    po::store(po::parse_config_file(config_file, config), vm);
+    po::notify(vm);
+
+    imagePath = vm["imagePath"].as<std::string>();
+    display_original =  vm["display.original"].as<bool>();
+    shrink = vm["preprocess.shrink"].as<bool>();
+    factor = vm["preprocess.shrink.X"].as<float>();
+    type = vm["preprocess.shrink.type"].as<std::string>();
+    nev = vm["harmonic.numEigen"].as<int>();
+    ncv = vm["harmonic.Arnoldi"].as<int>();;
+    maxIter = vm["harmonic.maxIter"].as<int>();
+    tol = vm["harmonic.eps"].as<double>();
+    islarge = vm["harmonic.isLargest"].as<bool>();
+    applyBlur = vm["applyBlur"].as<bool>();
+
+
+    bool enhanceContrast = vm["enhanceContrast"].as<bool>();
+	double contrast_clipLimit = vm["contrast_clipLimit"].as<double>();
+	int contrast_size = vm["contrast_size"].as<int>();
+
+	dirK = vm["dirK"].as<int>();
+
+	std::cout << std::endl;
+	std::cout << "===== Settings =====" << std::endl;
+	std::cout << std::left << std::setw(25) << "Image Path:" << imagePath << std::endl;
+	std::cout << std::left << std::setw(25) << "Display Original:" << std::boolalpha << display_original << std::endl;
+	std::cout << std::left << std::setw(25) << "Shrink:" << std::boolalpha << shrink << std::endl;
+	std::cout << std::left << std::setw(25) << "Shrink Factor:" << factor << std::endl;
+	std::cout << std::left << std::setw(25) << "Type:" << type << std::endl;
+	std::cout << std::left << std::setw(25) << "Number of Eigenvalues:" << nev << std::endl;
+	std::cout << std::left << std::setw(25) << "Arnoldi Vectors (ncv):" << ncv << std::endl;
+	std::cout << std::left << std::setw(25) << "Max Iterations:" << maxIter << std::endl;
+	std::cout << std::left << std::setw(25) << "Tolerance (eps):" << tol << std::endl;
+	std::cout << std::left << std::setw(25) << "Is Largest Eigenvalue:" << std::boolalpha << islarge << std::endl;
+	std::cout << std::left << std::setw(25) << "Apply Blur:" << std::boolalpha << applyBlur << std::endl;
+	std::cout << std::endl;
+
+ return 0;
+}
