@@ -37,6 +37,8 @@ public:
     DataStruct(const std::string& pathName, const Eigen::Vector3i& dim, const Eigen::Vector3i& regionSz);
 
     // Public Member Functions
+    void getStatus(); 
+
     void logDebugInfo();
     void saveState();
     void loadState();
@@ -54,6 +56,7 @@ private:
     void IsomorphicTransform();
 
     // Private Member Variables
+    bool status; 
     cv::Mat volume;  // 3D tensor representing the volume (placeholder type)
     Eigen::Vector3i Dim; // Full (original) volume dimensions
     Eigen::Vector3i regionSize; // Size of each sub-volume region
