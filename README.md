@@ -37,6 +37,7 @@ This project has dependencies on the following third-party libraries:
 - [OpenCV](https://opencv.org/) (>= 4.x) for image and matrix operations.
 - [Eigen](https://eigen.tuxfamily.org/dox/) (>= 3.x) for linear algebra computations.
 - [Boost](https://www.boost.org/) (>= 1.65) for C++ extensions and multi-threading utilities.
+- [Spectra](https://spectralib.org) for large scale Eigenvalue problems 
 
 ## Installation
 
@@ -92,13 +93,20 @@ make
 ```
 
 
-## Documentation
+## Unit tests
+1. Specify path name in config
 
-_Coming soon._
+```bash
+pathName = /unit_tests/campfire/rec/
+```
 
-## Contributing
+2. Navigate into the project's `build` directory and run the tests:
 
-If you're interested in contributing, please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
+```bash
+cd build
+./unit_tests
+```
+
 
 ## License
 
