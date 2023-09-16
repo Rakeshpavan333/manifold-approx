@@ -571,12 +571,14 @@ private:
 
 // Constructor to initialize from a directory path
 DataStruct::DataStruct(const std::string& pathName) {
+    status = false;
     readData(pathName);
     configureRegions();
 }
 
 // Constructor to initialize from a cv::Mat object
 DataStruct::DataStruct(cv::Mat& data) {
+    status = false;
     readData(data);
     configureRegions();
 }
@@ -584,12 +586,17 @@ DataStruct::DataStruct(cv::Mat& data) {
 // Constructor to initialize with custom dimensions and region size
 DataStruct::DataStruct(const std::string& pathName, const Eigen::Vector3i& dim, const Eigen::Vector3i& regionSz)
         : Dim(dim), regionSize(regionSz) {
+    status = false;
     readData(pathName);
     configureRegions();
 }
 
 cv::Mat& DataStruct::getSample() {
 		return sampleImage;
+}
+
+bool DataStruct::getStatus() {
+	return status;
 }
 
 void DataStruct::configureRegions() {
@@ -615,6 +622,9 @@ void DataStruct::configureRegions() {
 
 
 	    displayConfig(config, vm);
+
+	    status = false; 
+	
 	    // ---------------------------------------------------------------------------
 	    // Asynchronous Task Launching
 	    // ---------------------------------------------------------------------------
@@ -658,6 +668,8 @@ void DataStruct::configureRegions() {
 	    for (auto& fut : futures) {
 	        fut.get();
 	    }
+
+	    status = true;
 	}
 
 void DataStruct::readData(const std::string& pathName) {
