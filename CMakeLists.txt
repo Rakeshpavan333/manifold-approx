@@ -14,7 +14,8 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 # Find required packages
 find_package(OpenCV REQUIRED)
 find_package(Eigen3 REQUIRED)
-find_package(Boost REQUIRED COMPONENTS system thread)
+find_package(Boost COMPONENTS system thread program_options REQUIRED)
+find_package(Spectra REQUIRED)
 
 # Add all .cpp files
 file(GLOB SOURCES "*.cpp")
@@ -28,5 +29,5 @@ foreach(sourcefile ${SOURCES})
     add_executable(${exename} ${sourcefile} ${HEADERS})
     
     # Link libraries
-    target_link_libraries(${exename} ${OpenCV_LIBS} Eigen3::Eigen ${Boost_LIBRARIES})
+    target_link_libraries(${exename} ${OpenCV_LIBS} Eigen3::Eigen ${Boost_LIBRARIES} Spectra::Spectra)
 endforeach()
