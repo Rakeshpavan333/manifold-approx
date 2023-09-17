@@ -60,6 +60,7 @@ using Tensor3D = std::vector<Eigen::MatrixXi>;
 using Tensor3Df = std::vector<Eigen::MatrixXf>;
 using Tensor3Dd = std::vector<Eigen::MatrixXd>;
 
+using Vector3D = std::vector<std::vector<std::vector<bool>>>; // Remember: Change to numeric in vfinal
 
 // Function Templates
 template <typename T>
