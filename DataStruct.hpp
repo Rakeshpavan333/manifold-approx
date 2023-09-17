@@ -33,7 +33,7 @@ class DataStruct {
 public:
     // Constructors
     DataStruct(const std::string& pathName);
-    DataStruct(cv::Mat& data);
+    DataStruct(const cv::Mat& data);
     DataStruct(const std::string& pathName, const Eigen::Vector3i& dim, const Eigen::Vector3i& regionSz);
 
     // Public Member Functions
