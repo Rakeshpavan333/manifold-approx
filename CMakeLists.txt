@@ -53,3 +53,7 @@ file(GLOB HEADERS "*.h" "*.hpp")
 # Create the executable
 add_executable(unit_tests unit_tests.cpp ${HEADERS})
 target_link_libraries(unit_tests ${OpenCV_LIBS} Eigen3::Eigen ${Boost_LIBRARIES} Spectra::Spectra)
+
+if (LINUX)
+    target_link_libraries(unit_tests pthread)
+endif()
