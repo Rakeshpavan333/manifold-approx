@@ -1,7 +1,7 @@
 // Includes -------------------------------------------------------------------
 #include <boost/program_options.hpp>  // Library for command-line option parsing
 #include "utilities.hpp"              // Custom utility functions for image processing and visualization
-#include "DataStruct.hpp"
+#include "DataStruct.cpp"
 
 // Namespace Aliases ----------------------------------------------------------
 namespace po = boost::program_options;  // Short alias for boost::program_options
@@ -12,7 +12,7 @@ bool test_check1_campfire() {
     po::options_description config("Allowed options");
     config.add_options()
         ("help,h", "Display this help message")
-        ("pathName", po::value<std::string>(&campfireFolder)->default_value("unit_tests/campfire/rec/"), "Specify the path to folder `rec`");
+        ("pathName", po::value<std::string>(&campfireFolder), "Specify the path to folder `rec`");
 
     // Parse the command-line arguments and store them in a map.
     po::variables_map vm;
