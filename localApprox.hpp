@@ -153,8 +153,9 @@ public:
 	    	return;
 	    }
 
-	    Eigen::Vector3d OrientDir = {index[0] - index[1], index[0] + index[1], 1};
-	    // Eigen::Vector3d dir = {1, 1, 1};
+	    Eigen::Vector3d OrientDir = {static_cast<double>(index[0] - index[1]), 
+                             static_cast<double>(index[0] + index[1]), 
+                             1.0};
 
 	    OrientDir /= OrientDir.norm(); 
 
