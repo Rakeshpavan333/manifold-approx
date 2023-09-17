@@ -402,7 +402,10 @@ public:
         for(int dx = 0; dx <= 1; ++dx) {
             for(int dy = 0; dy <= 1; ++dy){
                 for(int dz = 0; dz <= 1; ++dz) {
-                    Eigen::Vector3f dir = {node[0] + dx, node[1] + dy, node[2] + dz};
+                    Eigen::Vector3f dir = {static_cast<float>(node[0] + dx), 
+                       static_cast<float>(node[1] + dy), 
+                       static_cast<float>(node[2] + dz)};
+
                     auto &fraction = result[dir.cast<int>()]; // Remember: Check this casting
                     dir -= point;   
                     fraction.first += intensity * dir.norm();
