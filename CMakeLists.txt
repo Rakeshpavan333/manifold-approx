@@ -11,6 +11,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Add the path to the FindXXX.cmake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
+
+if(NOT DEFINED OpenCV_DIR)
+    set(OpenCV_DIR /Users/test/ThoughtExp/lib/opencv/build)
+endif()
+
+
+include_directories(${OpenCV_INCLUDE_DIRS})
+
 # Find required packages
 find_package(OpenCV REQUIRED)
 find_package(Eigen3 REQUIRED)
@@ -21,13 +29,5 @@ find_package(Spectra REQUIRED)
 file(GLOB SOURCES "*.cpp")
 file(GLOB HEADERS "*.h" "*.hpp")
 
-# Automatically add executables based on the .cpp files
-foreach(sourcefile ${SOURCES})
-    # Get the name of the file without the extension
-    get_filename_component(exename ${sourcefile} NAME_WE)
-    
-    add_executable(${exename} ${sourcefile} ${HEADERS})
-    
-    # Link libraries
-    target_link_libraries(${exename} ${OpenCV_LIBS} Eigen3::Eigen ${Boost_LIBRARIES} Spectra::Spectra)
-endforeach()
+add_executable(unit_tests unit_tests.cpp ${HEADERS})
+target_link_libraries(unit_tests ${OpenCV_LIBS} Eigen3::Eigen ${Boost_LIBRARIES} Spectra::Spectra)
