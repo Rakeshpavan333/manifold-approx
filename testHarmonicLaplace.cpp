@@ -5,6 +5,9 @@
   Version 0.5 (verify)
 */ 
 
+#ifndef HARMONIC_HPP
+#define HARMONIC_HPP
+
 #include <chrono> 
 #include <filesystem>
 #include <iostream>
@@ -401,7 +404,7 @@ private:
 };
 
 
-int main()
+bool test_harmonic()
 {
     po::options_description config("Configuration");
     config.add_options()
@@ -460,5 +463,7 @@ int main()
 	std::cout << std::left << std::setw(25) << "Apply Blur:" << std::boolalpha << applyBlur << std::endl;
 	std::cout << std::endl;
 
- return 0;
+ return false;
 }
+
+#endif
