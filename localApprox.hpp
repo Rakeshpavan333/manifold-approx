@@ -3,8 +3,12 @@
  	Version 0.6 (verify)
 */ 
 
-#include "utilities.hpp" 
-#include "DataStruct.hpp" 
+
+#ifndef LOCAL_HPP
+#define LOCAL_HPP
+
+// #include "utilities.hpp" 
+// #include "DataStruct.hpp" 
 
 class LocalManifold {
 public:
@@ -212,3 +216,4 @@ private:
     int vec_index;
 };
 
+#endif
